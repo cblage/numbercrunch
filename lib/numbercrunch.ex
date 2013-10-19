@@ -38,10 +38,10 @@ defmodule Numbercrunch do
 
   defp count_floats(<< >>, acc), do: acc
 
-  defp count_floats(<< char :: utf8, rest :: binary >> = bin, acc) do 
+  defp count_floats(<< _ , rest :: binary >> = bin, acc) do 
     case Float.parse(bin) do 
       :error -> count_floats(rest, acc)
-      {float, remainder} -> count_floats(remainder, acc + 1)
+      {_, remainder} -> count_floats(remainder, acc + 1)
     end
   end
 
@@ -49,10 +49,10 @@ defmodule Numbercrunch do
 
   defp count_integers(<< >>, acc), do: acc
 
-  defp count_integers(<< char :: utf8, rest :: binary >> = bin, acc) do
+  defp count_integers(<< _ , rest :: binary >> = bin, acc) do
     case Integer.parse(bin) do 
       :error -> count_integers(rest, acc)
-      {float, remainder} -> count_integers(remainder, acc + 1)
+      {_, remainder} -> count_integers(remainder, acc + 1)
     end
   end
 end
