@@ -12,6 +12,6 @@
         Interactive Elixir (0.10.4-dev) - press Ctrl+C to exit (type h() ENTER for help)
         iex(1)> Numbercrunch.profile_number_counter_<A|B> 
 
-A "number_counter_<A|B>.fprof" file will be generated in the project dir. 
+A "number\_counter\_\<A|B>.fprof" file will be generated in the project dir. 
 I suggest following this guide to transform it into the callgrind format and checking the results in kcachegrind: 
 <http://blog.equanimity.nl/blog/2013/04/24/fprof-kcachegrind/>
