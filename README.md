@@ -1,17 +1,31 @@
 # Numbercrunch
 
-### Running the number parser benchmark
+### Running the number parser profiler
+
         $iex -S mix
-        Erlang R16B02 (erts-5.10.3) [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
-        Interactive Elixir (0.10.4-dev) - press Ctrl+C to exit (type h() ENTER for help)
-        iex(1)> Numbercrunch.parse_numbers
+        Erlang/OTP 23 [erts-11.1.4] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
+        Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
+        iex(1)> Numbercrunch.profile_parse_numbers
+
+A "parsing_profile.fprof" file will be generated in the project dir.
 
 ### Running the number counter profiler
-        $iex -S mix
-        Erlang R16B02 (erts-5.10.3) [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
-        Interactive Elixir (0.10.4-dev) - press Ctrl+C to exit (type h() ENTER for help)
-        iex(1)> Numbercrunch.profile_number_counter_<A|B> 
 
-A "number\_counter\_\<A|B>.fprof" file will be generated in the project dir. 
-I suggest following this guide to transform it into the callgrind format and checking the results in kcachegrind: 
-<http://blog.equanimity.nl/blog/2013/04/24/fprof-kcachegrind/>
+        $iex -S mix
+        Erlang/OTP 23 [erts-11.1.4] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
+        Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
+        iex(1)> Numbercrunch.profile_number_counter_<A|B>
+
+A "number_counter\_\<A|B>.fprof" file will be generated in the project dir.
+
+### Visualizing results
+
+Providing you have `qcachegrind` installed, you can use the `erlgrind.sh` script that was borrowed from <https://github.com/isacssouza/erlgrind> in the following fashion:
+
+```bash
+./erlgrind.sh XXXX.fprof callgrind.XXX
+```
+
+Afterwards you should be able to open the generated callgrind file inside `qachegrind`
+
+Inspired by this guide: <http://blog.equanimity.nl/blog/2013/04/24/fprof-kcachegrind/>

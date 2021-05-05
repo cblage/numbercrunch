@@ -5,3 +5,6 @@ erl_crash.dump
 *.fprof
 callgrind.*
 fprof.trace
+_build/
+.vscode
+.elixir_ls
