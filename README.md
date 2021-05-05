@@ -7,7 +7,7 @@
         Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
         iex(1)> Numbercrunch.profile_parse_numbers
 
-A "parsing_profile.fprof" file will be generated in the project dir.
+A `number_parsing_profile.fprof` file will be generated in the project dir.
 
 ### Running the number counter profiler
 
@@ -16,7 +16,7 @@ A "parsing_profile.fprof" file will be generated in the project dir.
         Interactive Elixir (1.11.3) - press Ctrl+C to exit (type h() ENTER for help)
         iex(1)> Numbercrunch.profile_number_counter_<A|B>
 
-A "number_counter\_\<A|B>.fprof" file will be generated in the project dir.
+A `number_counter\_\<A|B>.fprof` file will be generated in the project dir.
 
 ### Visualizing results
 

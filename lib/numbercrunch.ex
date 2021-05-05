@@ -141,7 +141,7 @@ defmodule Numbercrunch do
     :ok
   end
 
-  def benchmark_parse_numbers do
+  def profile_parse_numbers do
     IO.puts("Preparing to profile number parsing")
     parse_numbers_start = :erlang.now()
     :fprof.start()
@@ -156,12 +156,10 @@ defmodule Numbercrunch do
     parse_numbers_time = :timer.now_diff(parse_numbers_stop, parse_numbers_start) / 1_000_000
 
     :fprof.profile()
-    :fprof.analyse({:dest, 'parsing_profile.fprof'})
+    :fprof.analyse({:dest, 'number_parsing_profile.fprof'})
     :fprof.stop()
 
-    IO.puts("Profile finished, check parsing_profile.fprof")
-
-    IO.puts("Number parsing took: #{parse_numbers_time}s")
+    IO.puts("Profilng finished after #{parse_numbers_time}s, check number_parsing_profile.fprof")
   end
 
   defp count_floats(bin), do: count_floats(bin, 0)
